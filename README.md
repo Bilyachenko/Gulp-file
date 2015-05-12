@@ -1,4 +1,4 @@
-# Gulp
+# Gulp for html css coding 
 
 install gulp
 <pre>npm install -g gulp</pre>
@@ -18,3 +18,5 @@ Install gulp locally to your project
 <pre>npm install --save-dev gulp-livereload</pre>
 ###gulp-connect
 <pre>npm install --save-dev gulp-connect</pre>
+
+At the and add gulpFile in your main directory project
