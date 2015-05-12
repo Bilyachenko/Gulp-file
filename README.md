@@ -19,4 +19,4 @@ Install gulp locally to your project
 ###gulp-connect
 <pre>npm install --save-dev gulp-connect</pre>
 
-At the and add gulpFile in your main directory project
+At the and add <a href="https://github.com/Bilyachenko/Gulp-file/blob/master/gulpFile.js">gulpFile</a> in your main directory project
