@@ -10,6 +10,8 @@ Install gulp locally to your project
 <pre>npm install gulp-less --save-dev</pre>
 ###Gulp concat css
 <pre>npm install --save-dev gulp-concat-css</pre>
+###gulp-notify
+<pre>npm install --save-dev gulp-notify</pre>
 ###gulp-autoprefixer
 <pre>npm install --save-dev gulp-autoprefixer</pre>
 ###Optimize Images
