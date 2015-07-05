@@ -4,6 +4,7 @@ var gulp = require('gulp'),
 	prefix = require('gulp-autoprefixer'),
 	concatCss = require('gulp-concat-css'),
 	imagemin = require('gulp-imagemin'),
+	notify = require('gulp-notify'),
 	livereload = require('gulp-livereload'),
 	connect = require('gulp-connect');
 
@@ -46,6 +47,7 @@ gulp.task('less', function () {
 		}))
 		.pipe(concatCss('style.css'))
 		.pipe(gulp.dest('css'))
+		.pipe(notify('Done!'))
 		.pipe(connect.reload());
  
 });
