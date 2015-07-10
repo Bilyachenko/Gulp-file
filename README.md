@@ -25,10 +25,9 @@ Install gulp locally to your project
 
 And add gulpfile.js with setings
 
-If you have problem with sturt gulp
+If you have problem with run gulp
 Add to toy package.json
 <pre>"scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "gulp",
     "minify": "gulp minify"
   },</pre>
