@@ -6,8 +6,8 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	notify = require('gulp-notify'),
 	livereload = require('gulp-livereload'),
-	connect = require('gulp-connect');
-
+	connect = require('gulp-connect'),
+	plumber = require('gulp-plumber');
 	
 //imagemin
 gulp.task('img', function() {
@@ -37,9 +37,20 @@ gulp.task('connect', function() {
 
 // less
 gulp.task('less', function () {
- 
-    gulp.src('css/*.less')
- 
+	
+ 	var onError = function(err) {
+		notify.onError({
+		title:    "Gulp",
+		subtitle: "Failure!",
+		message:  "Error: <%= error.message %>",
+		sound:    "Beep"
+		})(err);
+	
+		this.emit('end');
+	};
+	
+   return gulp.src('css/*.less')
+ 	.pipe(plumber({errorHandler: onError}))
         .pipe(less())
 		.pipe(prefix({
 			browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'],
@@ -47,7 +58,12 @@ gulp.task('less', function () {
 		}))
 		.pipe(concatCss('style.css'))
 		.pipe(gulp.dest('css'))
-		.pipe(notify('Done!'))
+		.pipe(notify({
+			title: 'Gulp',
+			subtitle: 'success',
+			message: 'less Ok!',
+			sound: "Pop"
+		}))
 		.pipe(connect.reload());
  
 });
