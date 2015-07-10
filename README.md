@@ -25,7 +25,4 @@ Install gulp locally to your project
 At the and add gulpFile in your main directory project
 ###pacjage.json
 After run gulp
-"scripts": {
-	"gulp": "gulp",
-	"minify": "gulp minify"
-}
+<pre>"scripts": {"gulp": "gulp","minify": "gulp minify"}
