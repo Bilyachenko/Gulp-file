@@ -23,4 +23,4 @@ Install gulp locally to your project
 ###gulp-plumber
 <pre>npm install --save-dev gulp-plumber</pre>
 
-And add gukpfile.js with setings
+And add gulpfile.js with setings
