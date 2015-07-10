@@ -20,9 +20,11 @@ Install gulp locally to your project
 <pre>npm install --save-dev gulp-livereload</pre>
 ###gulp-connect
 <pre>npm install --save-dev gulp-connect</pre>
+###gulp-plumber
+<pre>npm install --save-dev gulp-plumber
 
+After run gulp
 At the and add gulpFile in your main directory project
-
 ###pacjage.json
 "scripts": {
 	"gulp": "gulp",
