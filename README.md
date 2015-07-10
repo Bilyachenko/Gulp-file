@@ -20,5 +20,4 @@ Install gulp locally to your project
 <pre>npm install --save-dev gulp-livereload</pre>
 ###gulp-connect
 <pre>npm install --save-dev gulp-connect</pre>
-###gulp-plumber
-<pre>npm install --save-dev gulp-plumber
+###gulp-plumber<pre>npm install --save-dev gulp-plumber
