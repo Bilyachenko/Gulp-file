@@ -24,3 +24,11 @@ Install gulp locally to your project
 <pre>npm install --save-dev gulp-plumber</pre>
 
 And add gulpfile.js with setings
+
+If you have problem with sturt gulp
+Add to toy package.json
+<pre>"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp",
+    "minify": "gulp minify"
+  },</pre>
