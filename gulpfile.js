@@ -50,7 +50,7 @@ gulp.task('less', function () {
 		this.emit('end');
 	};
 	
-   return gulp.src('css/*.less')
+   return gulp.src('css/less/*.less')
  	.pipe(plumber({errorHandler: onError}))
         .pipe(less())
 		.pipe(prefix({
@@ -78,7 +78,7 @@ gulp.task('html', function(){
 // watch
 gulp.task('watch', function(){
 	
-	gulp.watch('css/*.less',['less']);
+	gulp.watch('css/less/*.less',['less']);
 	gulp.watch('index.html',['html']);
 	gulp.watch('compress-img/*.{png,jpg,gif}',['img']);
 	
