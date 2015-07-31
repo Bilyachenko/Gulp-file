@@ -23,7 +23,7 @@ Install gulp locally to your project
 ###gulp-plumber
 <pre>npm install --save-dev gulp-plumber</pre>
 ###To install these plugins, run the following command:
-<pre>$ npm install gulp-ruby-less gulp-autoprefixer gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-livereload del --save-dev</pre>
+<pre>$ npm install gulp-less gulp-autoprefixer gulp-concat-css gulp-notify gulp-imagemin gulp-notify gulp-livereload gulp-connect gulp-plumber del --save-dev</pre>
 And add gulpfile.js with setings
 
 If you have problem with run gulp
