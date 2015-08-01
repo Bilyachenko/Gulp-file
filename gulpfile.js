@@ -50,14 +50,14 @@ gulp.task('less', function () {
 		this.emit('end');
 	};
 	
-   return gulp.src('css/less/*.less')
+   return gulp.src('css/less/base.less')
  	.pipe(plumber({errorHandler: onError}))
         .pipe(less())
 		.pipe(prefix({
 			browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'],
             cascade: false
 		}))
-		.pipe(concatCss('style.css'))
+		.pipe(concatCss('./style.css'))
 		.pipe(gulp.dest('css'))
 		.pipe(notify({
 			title: 'Gulp',
