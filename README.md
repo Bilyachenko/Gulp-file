@@ -16,6 +16,8 @@ Install gulp locally to your project
 <pre>npm install --save-dev gulp-autoprefixer</pre>
 ###Optimize Images
 <pre>npm install gulp-imagemin --sav-dev</pre>
+###gulp.spritesmith  (more inf. <a href="https://www.npmjs.com/package/gulp.spritesmith">hear</a>)
+<pre>--save-dev gulp.spritesmith</pre>
 ###gulp-livereload
 <pre>npm install --save-dev gulp-livereload</pre>
 ###gulp-connect
