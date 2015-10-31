@@ -8,7 +8,18 @@ var gulp = require('gulp'),
 	notify = require('gulp-notify'),
 	livereload = require('gulp-livereload'),
 	connect = require('gulp-connect'),
-	plumber = require('gulp-plumber');
+	plumber = require('gulp-plumber'),
+	spritesmith = require("gulp.spritesmith");
+
+
+gulp.task('sprite', function () {
+  var spriteData = gulp.src('img/icons/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.css',
+	padding: 10
+  }));
+  return spriteData.pipe(gulp.dest('sprites/'));
+});
 	
 //imagemin
 gulp.task('img', function() {
@@ -81,8 +92,9 @@ gulp.task('watch', function(){
 	gulp.watch('css/less/*.less',['less']);
 	gulp.watch('index.html',['html']);
 	gulp.watch('compress-img/*.{png,jpg,gif}',['img']);
+	gulp.watch('img/icons/*.png',['sprite']);
 	
 });		
 
 // default
-gulp.task('default', ['connect', 'html', 'img', 'less', 'watch']);
+gulp.task('default', ['connect', 'html', 'img', 'less', 'sprite', 'watch']);
