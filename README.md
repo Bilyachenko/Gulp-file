@@ -30,10 +30,3 @@ Install gulp locally to your project
 <pre>--save-dev gulp-rename</pre>
 
 And add gulpfile.js with setings
-
-If you have problem with run gulp
-Add to toy package.json
-<pre>"scripts": {
-    "gulp": "gulp",
-    "minify": "gulp minify"
-  },</pre>
