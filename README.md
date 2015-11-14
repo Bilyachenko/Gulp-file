@@ -30,3 +30,8 @@ Install gulp locally to your project
 <pre>--save-dev gulp-rename</pre>
 
 And add gulpfile.js with setings
+
+###PATH
+Windows 7
+First address to nodejs, next to gulp
+<pre>C:\Program Files\nodejs;C:\Users\{YourLogin}\AppData\Roaming\npm</pre>
