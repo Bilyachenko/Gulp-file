@@ -28,7 +28,10 @@ Install gulp locally to your project
 <pre>--save-dev gulp-minify-css</pre>
 ###gulp-rename
 <pre>--save-dev gulp-rename</pre>
-
+### Install all plugins
+<pre>npm install --save-dev gulp-sass gulp-autopref
+ixer gulp-concat-css gulp-imagemin gulp-notify gulp-livereload gulp-connect gulp
+-plumber gulp-minify-css gulp-rename gulp.spritesmith bourbon</pre>
 And add gulpfile.js with setings
 
 ###PATH
