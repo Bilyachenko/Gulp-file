@@ -1,66 +1,33 @@
 //corect
 var gulp = require('gulp'),
 	
-	less = require('gulp-less'),
+	sass = require('gulp-sass'),
 	prefix = require('gulp-autoprefixer'),
 	concatCss = require('gulp-concat-css'),
-	imagemin = require('gulp-imagemin'),
+	//imagemin = require('gulp-imagemin'),
 	notify = require('gulp-notify'),
 	livereload = require('gulp-livereload'),
-	connect = require('gulp-connect'),
+	webserver = require('gulp-webserver'),
 	plumber = require('gulp-plumber'),
 	minifyCSS = require('gulp-minify-css'),
 	rename = require('gulp-rename'),
 	spritesmith = require("gulp.spritesmith");
 
-	
+
 gulp.task('sprite', function () {
 	var spriteData = gulp.src('project/images/icons/*.png').pipe(spritesmith({
-
 		imgName: 'sprite.png',
-
-		cssName: 'sprite.less',
-		cssFormat: 'less',
+		cssName: 'sprite.scss',
+		cssFormat: 'scss',
 		padding: 10
 	}));
 	spriteData.img.pipe(gulp.dest('project/images/'));
-	spriteData.css.pipe(gulp.dest('project/less/'));
+	spriteData.css.pipe(gulp.dest('project/sass/'));
 
 });
 
-	
-	
-//image min
-gulp.task('compressIMG', function() {
- 
-  gulp.src('compress-img/*{png,jpg,gif}')
- 
-    .pipe(imagemin({
- 
-      optimizationLevel: 7,
- 
-      progressive: true
- 
-    }))
- 
-    .pipe(gulp.dest('project/images'))
- 
-});
-	
-// server connect
-gulp.task('connect', function() {
-	
-	connect.server({
-		
-		root: 'project',
-		livereload: true
-	});
-	
-});
-
-
-// less
-gulp.task('less', function () {
+// sass
+gulp.task('sass', function () {
 	
  	var onError = function(err) {
 		notify.onError({
@@ -73,30 +40,66 @@ gulp.task('less', function () {
 		this.emit('end');
 	};
 	
-   return gulp.src('project/less/base.less')
+   return gulp.src('project/sass/base.scss')
+
    
 		.pipe(plumber({errorHandler: onError}))
+
+        .pipe(sass({
+			includePaths: require('node-bourbon').includePaths,
+			style: 'compressed',
+			quiet: true
+		}))
 		
-        .pipe(less())
-		
-			.pipe(prefix({
-				browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'],
-				cascade: false
-			}))
-		
+		.pipe(prefix({
+			browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'],
+			cascade: false
+		}))
+
 		.pipe(concatCss('style.css'))
 		.pipe(gulp.dest('project'))
 		
 		.pipe(notify({
 			title: 'Gulp',
-			subtitle: 'less success',
-			message: 'less update',
-			sound: "Pop"
+			subtitle: 'sass success',
+			message: 'sass update OK',
+			sound: false
 		}))
-		
-		.pipe(connect.reload());
  
 });
+	
+	
+//image min
+/*gulp.task('compressIMG', function() {
+ 
+  gulp.src('compress-img/*{png,jpg,gif}')
+ 
+    .pipe(imagemin({
+ 
+      optimizationLevel: 7,
+ 
+      progressive: true
+ 
+    }))
+ 
+    .pipe(gulp.dest('project/content-images'))
+ 
+});*/
+	
+// webserver
+gulp.task('webserver', function() {
+	
+	gulp.src('project')
+	.pipe(webserver({
+		port:4000,
+		livereload: true,
+		open: true
+	}));
+	
+});
+
+
+
 
 /*minify css*/
 gulp.task('minCSS', function(){
@@ -112,23 +115,24 @@ gulp.task('html', function(){
 		.pipe(notify({
 			title: 'Gulp',
 			subtitle: 'html success',
-			message: 'html update',
-			sound: "Pop"
+			message: 'html update OK',
+			sound: false
 		}))
-		.pipe(connect.reload());
+
 });
 
 // watch
 gulp.task('watch', function(){
 	
-	gulp.watch('project/less/*.less',['less']);
-	gulp.watch('project/*html',['html']);
-
-	gulp.watch('compress-img/*.{png,jpg,gif}',['img']);
 	gulp.watch('project/images/icons/*.png',['sprite']);
+	//gulp.watch('compress-img/*.{png,jpg,gif}',['compressIMG']);
+	gulp.watch('project/sass/*.scss',['sass']);
+	gulp.watch('project/*html',['html']);
+	gulp.watch('project/style.css',['minCSS']);
 
 	
+
 });		
 
 // default
-gulp.task('default', ['connect', 'html', 'less', 'sprite', 'watch']);
+gulp.task('default', [ 'watch', 'webserver', 'html', 'minCSS', 'sass', 'sprite']);
