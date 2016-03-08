@@ -6,7 +6,7 @@ In project foldre create package.json
 <pre>npm init</pre>
 Install gulp locally to your project
 <pre>npm install gulp --save-dev</pre>
-###Creating a Basic less/Sass Compilation Tool
+<!--###Creating a Basic less/Sass Compilation Tool
 <pre>npm install gulp-less --save-dev</pre>
 ###Gulp concat css
 <pre>npm install --save-dev gulp-concat-css</pre>
@@ -32,7 +32,7 @@ Install gulp locally to your project
 <pre>npm install --save-dev gulp-sass gulp-autopref
 ixer gulp-concat-css gulp-imagemin gulp-notify gulp-livereload gulp-connect gulp
 -plumber gulp-minify-css gulp-rename gulp.spritesmith bourbon</pre>
-And add gulpfile.js with setings
+And add gulpfile.js with setings-->
 
 ###PATH
 Windows 7
